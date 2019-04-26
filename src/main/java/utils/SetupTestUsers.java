@@ -19,11 +19,11 @@ public class SetupTestUsers {
     em.getTransaction().begin();
     Role userRole = new Role("user");
     Role adminRole = new Role("admin");
-    User user = new User("user", "test");
+    User user = new User("user", "1234");
     user.addRole(userRole);
-    User admin = new User("admin", "test");
+    User admin = new User("admin", "1234");
     admin.addRole(adminRole);
-    User both = new User("user_admin", "test");
+    User both = new User("user_admin", "1234");
     both.addRole(userRole);
     both.addRole(adminRole);
     em.persist(userRole);
@@ -33,8 +33,8 @@ public class SetupTestUsers {
     em.persist(both);
     em.getTransaction().commit();
     System.out.println("PW: " + user.getUserPass());
-    System.out.println("Testing user with OK password: " + user.verifyPassword("test"));
-    System.out.println("Testing user with wrong password: " + user.verifyPassword("test1"));
+    System.out.println("Testing user with OK password: " + user.verifyPassword("1234"));
+    System.out.println("Testing user with wrong password: " + user.verifyPassword("test1234"));
     System.out.println("Created TEST Users");
    
   }
